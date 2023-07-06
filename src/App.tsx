@@ -54,7 +54,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   button: {
     borderRadius: '10px',
     padding: '10px 20px',
-    fontSize: '20px',
+    fontSize: '21px',
     fontWeight: 'bold',
     color: 'black',
     backgroundColor: '#F9E854',
