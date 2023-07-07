@@ -4,6 +4,7 @@ import { makeStyles, Theme } from '@material-ui/core/styles'
 import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
 import SendIcon from '@material-ui/icons/Send'
+import Grid from '@material-ui/core/Grid'
 
 const useStyles = makeStyles((theme: Theme) => ({
   container: {
@@ -35,6 +36,9 @@ const useStyles = makeStyles((theme: Theme) => ({
     margin: 0,
     color: 'black',
     fontFamily: 'Lucida Calligraphy, cursive',
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '60px',
+    },
   },
   footer1: {
     position: 'absolute',
@@ -84,40 +88,45 @@ const App: React.FC = () => {
 
   return (
     <div className={classes.container}>
-      <div>
-        <Typography className={classes.header} variant="h1">
-          Mundo belleza
-        </Typography>
-      </div>
-      <div className={classes.videoWrapper}>
-        <iframe
-          width="560"
-          height="315"
-          src="https://www.youtube.com/embed/eTGu0CZs0r0"
-          title="YouTube Video"
-          frameBorder="0"
-          allowFullScreen
-        ></iframe>
-      </div>
-      <div className={classes.footer1}>
-        <Typography
-          className={` ${classes.bounce} ${classes.footer1}`}
-          variant="h2"
-        >
-          Clik Aquí
-        </Typography>
-      </div>
-
-      <div className={classes.footer2}>
-        <Button
-          variant="contained"
-          endIcon={<SendIcon />}
-          className={classes.button}
-          onClick={handleClick}
-        >
-          Entrar
-        </Button>
-      </div>
+      <Grid container spacing={2}>
+        <Grid item xs={12}>
+          <Typography className={classes.header} variant="h1">
+            Mundo belleza
+          </Typography>
+        </Grid>
+        <Grid item xs={12} md={6}>
+          <div className={classes.videoWrapper}>
+            <iframe
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/eTGu0CZs0r0"
+              title="YouTube Video"
+              frameBorder="0"
+              allowFullScreen
+            ></iframe>
+          </div>
+        </Grid>
+        <Grid item xs={12} md={6}>
+          <div className={classes.footer1}>
+            <Typography
+              className={` ${classes.bounce} ${classes.footer1}`}
+              variant="h2"
+            >
+              Clik Aquí
+            </Typography>
+          </div>
+          <div className={classes.footer2}>
+            <Button
+              variant="contained"
+              endIcon={<SendIcon />}
+              className={classes.button}
+              onClick={handleClick}
+            >
+              Entrar
+            </Button>
+          </div>
+        </Grid>
+      </Grid>
       <div>Contenido adicional del</div>
     </div>
   )
